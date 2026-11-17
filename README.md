@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Qismat
 
-## Getting Started
+Website and admin panel for Qismat, the free prize-draw app. Next.js static export, Firebase (project `prizemoney-6d1a7`) for data and admin sign-in.
 
-First, run the development server:
+- `/` the public site, `/privacy`, `/terms`
+- `/admin` the admin panel (only accounts listed in Firestore `admins/{uid}` get in)
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cp .env.local.example .env.local   # fill in the Firebase web app values
+npm install
+npm run dev                        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploy to Hostinger
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Set `NEXT_PUBLIC_SITE_URL` in `.env.local` to the real domain, e.g. `https://qismat.pk`.
+2. Build: `npm run build`. The whole site lands in `out/`, including `.htaccess` and `404.html`.
+3. In Hostinger File Manager, open `public_html`, delete the default files, and upload the **contents** of `out/` (not the folder itself). Zipping the contents of `out/` and using Extract works too.
+4. Turn on SSL for the domain in hPanel. `.htaccess` then forces HTTPS, drops `www.`, serves the branded 404 page and sets caching.
+5. In Firebase console → Authentication → Settings → Authorized domains, add the domain so admin sign-in works.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Files starting with a dot are hidden in File Manager by default; check `.htaccess` was uploaded.

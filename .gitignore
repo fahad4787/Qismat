@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# example env is safe to share
+!.env.local.example
+
+# local AI/design tooling, not part of the site
+/.claude/
+/.agents/
+/.taste-skill/
+skills-lock.json
