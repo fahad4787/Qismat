@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Qismat Overview</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: one reading column, a short flow strip, then two feature lists (app, admin). */
+:root{
+  --bg:#f6f5ef; --surface:#ffffff; --ink:#15211b; --muted:#5d6a62; --line:#e2e1d6;
+  --gold:#a8790f; --green:#0f3b2a; --chip:#f1ead2;
+  --display:"Sora",ui-sans-serif,system-ui,sans-serif;
+  --body:"Inter",ui-sans-serif,system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0b1712; --surface:#11211a; --ink:#ecefe9; --muted:#9fb0a6; --line:#22362c;
+  --gold:#e6b84a; --green:#bfe3cf; --chip:#2a2a17; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0b1712; --surface:#11211a; --ink:#ecefe9; --muted:#9fb0a6; --line:#22362c;
+  --gold:#e6b84a; --green:#bfe3cf; --chip:#2a2a17; color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 var(--body)}
+.wrap{max-width:760px;margin:0 auto;padding-block:48px 64px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:grid;gap:40px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.02em}
+h1{font-size:2.2rem;line-height:1.1}
+h1 b{color:var(--gold)}
+h2{font-size:1.35rem;margin-bottom:14px}
+h3{font-size:1rem;margin-bottom:4px}
+p{margin:0}
+.lead{color:var(--muted);font-size:1.05rem;max-width:62ch;margin-top:12px}
+.eyebrow{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:10px;counter-reset:s}
+.flow li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:.88rem;line-height:1.4;min-width:0}
+.flow li::before{content:counter(s);display:block;font-family:var(--display);color:var(--gold);font-weight:700;margin-bottom:4px}
+.flow b{display:block;font-weight:600}
+.flow span{color:var(--muted)}
+.list{display:grid;gap:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.row h3{font-size:.95rem}
+.row p{color:var(--muted);min-width:0}
+.tag{display:inline-block;font-size:.72rem;background:var(--chip);color:var(--gold);border-radius:99px;padding:1px 8px;margin-left:6px;font-weight:600;vertical-align:1px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.rule{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface)}
+.rule strong{font-family:var(--display);font-size:1.5rem;color:var(--green);display:block;line-height:1.1;font-variant-numeric:tabular-nums}
+.rule span{color:var(--muted);font-size:.86rem}
+.note{color:var(--muted);font-size:.86rem}
+@media (max-width:640px){
+  .flow{grid-template-columns:1fr 1fr}
+  .rules{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:2px}
+  h1{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <p class="eyebrow">Product overview</p>
+    <h1>Qismat: free prize draws, paid for by <b>ads</b></h1>
+    <p class="lead">Players in Pakistan watch short ads to earn tickets and spend them to enter prize draws. Nobody pays to play. The ad revenue pays for the prizes, and you run everything from the admin panel.</p>
+  </header>
+
+  <section>
+    <h2>How it works</h2>
+    <ol class="flow">
+      <li><b>Sign up</b><span>Google or email, plus a mobile number</span></li>
+      <li><b>Watch an ad</b><span>+1 ticket when it plays to the end</span></li>
+      <li><b>Enter a draw</b><span>Spend tickets on the prize you want</span></li>
+      <li><b>Draw closes</b><span>Admin picks winners live</span></li>
+      <li><b>Prize delivered</b><span>Winner is called and published</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The rules</h2>
+    <div class="rules">
+      <div class="rule"><strong>20</strong><span>tickets a day from ads, at most</span></div>
+      <div class="rule"><strong>+2</strong><span>tickets for the daily claim, which builds a streak</span></div>
+      <div class="rule"><strong>Rs 0</strong><span>cost to play. Tickets cannot be bought</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Android app</p>
+    <h2>For players</h2>
+    <div class="list">
+      <div class="row"><h3>Sign in</h3><p>A short intro, then sign in with Google or email and password. A mobile number is required so winners can be reached.</p></div>
+      <div class="row"><h3>Home</h3><p>Ticket balance, today's progress (for example 5 of 20), the daily claim and featured draws.</p></div>
+      <div class="row"><h3>Watch ad</h3><p>A rewarded ad. The ticket counts only if the ad finishes. Closing it early, having no connection or having no ad available shows a clear message.</p></div>
+      <div class="row"><h3>Draws</h3><p>Live prizes with photo, value, tickets per entry, number of winners and closing time. Players can buy several entries at once, and more entries mean better odds.</p></div>
+      <div class="row"><h3>Winners</h3><p>Every result is published with first name, city, prize and date.</p></div>
+      <div class="row"><h3>Profile</h3><p>Tickets, streak, ads watched, the sound on/off switch and sign out. Invite a friend (5 tickets each) <span class="tag">coming soon</span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Web · /admin</p>
+    <h2>Admin panel</h2>
+    <div class="list">
+      <div class="row"><h3>Access</h3><p>One admin email and password. An account gets in only if it is listed as an admin in Firebase.</p></div>
+      <div class="row"><h3>Overview</h3><p>Revenue today and all time (ads × eCPM × rupee rate), ads watched, new players, open draws and the total prize pool. Shows charts of ads and new players per day.</p></div>
+      <div class="row"><h3>Draws</h3><p>Add, edit, end early or delete a draw. Set the title, prize value, tickets per entry, number of winners, closing time, tag and photo. Use "Next round" to reopen a finished prize.</p></div>
+      <div class="row"><h3>Live draw</h3><p>Pick a closed draw and spin. Each entry is one chance, and nobody wins twice. Winners are picked with secure randomness and each one's odds are shown.</p></div>
+      <div class="row"><h3>Winners</h3><p>Add or edit winners and track each payout: To contact → Contacted → Delivered.</p></div>
+      <div class="row"><h3>Players</h3><p>Search by name and see each player's mobile, tickets, ads, streak and entries. You can set a player's ticket balance for support cases.</p></div>
+      <div class="row"><h3>Settings</h3><p>eCPM and rupees per dollar (for the revenue figures), the website announcement banner and the Google Play link.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Website · qismat.fixelcloud.com</p>
+    <h2>Public site</h2>
+    <p class="note">The landing page shows live draws, the prize pool and recent winners straight from the app's data, plus the announcement banner and a Get the app button. It also has Privacy and Terms pages.</p>
+  </section>
+</main>
+</body>
+</html>
