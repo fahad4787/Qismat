@@ -48,10 +48,24 @@ p{margin:0}
 .rule span{color:var(--muted);font-size:.86rem}
 .note{color:var(--muted);font-size:.86rem}
 @media (max-width:640px){
-  .flow{grid-template-columns:1fr 1fr}
-  .rules{grid-template-columns:1fr}
-  .row{grid-template-columns:1fr;gap:2px}
-  h1{font-size:1.8rem}
+  body{font-size:14.5px}
+  .wrap{padding-block:28px 48px;gap:32px}
+  h1{font-size:1.65rem}
+  h2{font-size:1.2rem;margin-bottom:10px}
+  .lead{font-size:.98rem}
+  /* Steps become a vertical timeline: number on the left, text on the right. */
+  .flow{grid-template-columns:1fr;gap:0;position:relative}
+  .flow li{display:grid;grid-template-columns:28px 1fr;column-gap:12px;background:none;border:0;border-radius:0;padding:0 0 14px}
+  .flow li::before{grid-row:span 2;width:28px;height:28px;border-radius:50%;background:var(--chip);display:grid;place-items:center;margin:0;font-size:.85rem}
+  .flow li:not(:last-child){background:linear-gradient(var(--line),var(--line)) 13.5px 30px/1px calc(100% - 30px) no-repeat}
+  .flow b{padding-top:3px}
+  /* Rules stay side by side as three small tiles. */
+  .rules{grid-template-columns:repeat(3,1fr);gap:8px}
+  .rule{padding:10px}
+  .rule strong{font-size:1.2rem}
+  .rule span{font-size:.75rem;line-height:1.35;display:block;margin-top:4px}
+  .row{grid-template-columns:1fr;gap:2px;padding:10px 0}
+  .row p{font-size:.92rem}
 }
 </style>
 </head>
